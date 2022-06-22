@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Manhattan Vehicle Control Big Data System</title>
+<title>Hong Kong Taxi Control Big Data System</title>
 <!--设置是否为缩放模式 -->
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /><!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" type="text/css" href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css">
@@ -85,8 +85,8 @@
 	</div>
 	<div class="head_top" style="cursor:pointer;">
 		<img class="img-responsive" src="images/jcdsj_logo.png">
-		<p style="font-size: 30px; font-weight: bolder">Manhattan Vehicle Control Big Data System</p>
-			<p style="font-size: 20px; font-weight: bolder; color:white; top: 42px;position:absolute">HKU Smart Mobility Lab (PI: Dr. Jintao Ke)</p>
+		<p style="font-size: 30px; font-weight: bolder">Hong Kong Taxi Control Big Data System</p>
+			<p style="font-size: 20px; font-weight: bolder; color:white; top: 110%;position:absolute">Mobility Lab (PI: Dr. Jintao Ke)</p>
 
 	</div>
 	<div class="visual">
@@ -132,7 +132,7 @@
 					<div>
 						<h3>Passenger pickup time</h3>
 						<p id="passenger pickup time" style="padding-left:30px">0</p>
-						<p style="color:white;left:10%; position:absolute">Min</p>
+						<p style="color:white;left:12%; position:absolute">Min</p>
 					</div>
 				</div>
 				<div class="visual_conTop_box visual_conTop1">
@@ -197,9 +197,9 @@
 			</div>
 		</div>
 		<div class="visual_right">
-			<div class="visual_box visualSfzsfl">
+			<div class="visual_box_long visualSfzsfl">
 				<div class="visual_title">
-					<span>Main three maps</span>
+					<span>Main four maps</span>
 					<img src="images/ksh33.png">
 				</div>
 				<div class="visual_table" style="float:left;line-height:28px;color:#20dbfd;text-shadow:0 0 25px
@@ -241,9 +241,9 @@
 					</div>
 					</div>
 			</div>
-			<div class="visual_box">
+			<div class="visual_box_short">
 				<div class="visual_title">
-					<span>Order finished status</span>
+					<span>Developers</span>
 					<img src="images/ksh33.png">
 				</div>
 				<p class="graphDesRight">This simulation platform is jointly developed by HKU Smart Mobility Lab (PI: Dr.
@@ -484,7 +484,7 @@ function sToHms(s){
           }
   }
   var lineLayer = new mapvgl.LineTripLayer({
-    step: 3.3,
+    step: 6.3,
     trailLength: 500,
     startTime: 0,
     endTime: max_time,
