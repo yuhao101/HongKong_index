@@ -313,21 +313,25 @@
                   var value3 = rs[num * 5 + 36000][4];
                   var value4 = rs[num * 5 + 36000][5];
                 cTime.innerHTML = 'Time: ' + sToHms(num * 5 + 36000);
-                p7.innerHTML = rs[num * 5 + 36000][2];
-                p8.innerHTML = rs[num * 5 + 36000][1];
-				option51['series'][0]['data'][0]['value'] = value1;
-				option52['series'][0]['data'][0]['value'] = value2;
-				option6['series'][0]['data'][0]['value'] = value3;
-				option7['series'][0]['data'][0]['value'] = value4;
-				option51['series'][0]['data'][1]['value'] = 1-value1;
-				option52['series'][0]['data'][1]['value'] = 1-value2;
-				option6['series'][0]['data'][1]['value'] = 1-value3;
-				option7['series'][0]['data'][1]['value'] = 1-value4;
-				myChart51.setOption(option51,true);
-				myChart5.setOption(option52,true);
-				myChart6.setOption(option6,true);
-				myChart7.setOption(option7,true);
-              }, num * (1000/10));
+                console.log(i);
+                if(num%10 == 0){
+                	p7.innerHTML = rs[num * 5 + 36000][2];
+					p8.innerHTML = rs[num * 5 + 36000][1];
+					option51['series'][0]['data'][0]['value'] = value1;
+					option52['series'][0]['data'][0]['value'] = value2;
+					option6['series'][0]['data'][0]['value'] = value3;
+					option7['series'][0]['data'][0]['value'] = value4;
+					option51['series'][0]['data'][1]['value'] = 1-value1;
+					option52['series'][0]['data'][1]['value'] = 1-value2;
+					option6['series'][0]['data'][1]['value'] = 1-value3;
+					option7['series'][0]['data'][1]['value'] = 1-value4;
+					myChart51.setOption(option51,true);
+					myChart5.setOption(option52,true);
+					myChart6.setOption(option6,true);
+					myChart7.setOption(option7,true);
+				}
+
+              }, num * (1000/100));
           })(i);
       }
   });
@@ -341,7 +345,7 @@
               setTimeout(function () {
                   p5.innerHTML = rs[num * 5 + 36000][0].toFixed(0);
                   p6.innerHTML = sToHms2(rs[num * 5 + 36000][1].toFixed(0));
-              }, num * (1000/20));
+              }, num * (1000/100));
           })(i);
       }
   });
@@ -428,14 +432,14 @@ function sToHms(s){
     }
   var timeOffset = 36000;
 
-  fetch('./hongkong/simulator_animation_1000.json').then(function(rs) {
+  fetch('./hongkong/simulator_animation.json').then(function(rs) {
     return rs.json();
   }).then(function(rs) {
     rs = rs.data;
     var data = [];
     var max_time = 0;
     // var length = 1000;
-    for (var i = 0; i < rs.length; i++) {
+    for (var i = 0; i < 5000; i++) {
       var type = rs[i].type;
       var traj_list = rs[i].traj_list;
       var time_list = rs[i].time_list;
