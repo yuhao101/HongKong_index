@@ -101,25 +101,7 @@ var view = new mapvgl.View({
                 }
             });
         }
-    startPoint=[114.14702, 22.29077];
-    endPoint= [114.15419, 22.29850];
-
-
-curve.setOptions({
-        start: start1,
-                end: end1
-    });
-    var test = curve.getPoints(60);
-    data = [];
-    data.push({
-                geometry: {
-                    type: 'LineString',
-                    coordinates: test
-                },
-                properties: {
-                    count: Math.random()
-                }
-            });
+    
     var lineLayer = new mapvgl.LineTripLayer({
         color: 'rgb(255, 255, 204)', // 飞线动画颜色
         step: 0.3
