@@ -103,6 +103,7 @@
 
     <div id="map"></div>
     <canvas id="canvas"></canvas>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=1.0&type=webgl&ak=Zyq6TjFQ1679hxUWSUhud4i03GThAEGI"></script>
 
     <script type="text/javascript" src="//apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=1XjLLEhZhQNUzd93EjU5nOGQ"></script>
@@ -268,13 +269,20 @@
                 var traj = rs[i].traj_list;
                 var coordinates = [];
                 for (j = 0; j < time.length; j += 1) {
-                    coordinates.push([traj[j][1], traj[j][0]]);
+                    node_point = [traj[j][1],traj[j][0]];
+                    var bd_point = gcoord.transform(
+                            node_point,    // 经纬度坐标
+                            gcoord.WGS84,                 // 当前坐标系
+                            gcoord.BD09                   // 目标坐标系
+                        );
+
+                    coordinates.push([bd_point[0], bd_point[1]]);
                     if(rs[i].type === 1.0){
                         timeData.push({
                         fillStyle: 'red',
                         geometry: {
                             type: 'Point',
-                            coordinates: [traj[j][1], traj[j][0]]
+                            coordinates: [bd_point[0], bd_point[1]]
                         },
                         count: 1,
                         time: time[j] - time_base
@@ -285,7 +293,7 @@
                             fillStyle: 'green',
                             geometry: {
                                 type: 'Point',
-                                coordinates: [traj[j][1], traj[j][0]]
+                                coordinates: [bd_point[0], bd_point[1]]
                             },
                             count: 1,
                             time: time[j] - time_base
@@ -296,7 +304,7 @@
                             fillStyle: 'yellow',
                             geometry: {
                                 type: 'Point',
-                                coordinates: [traj[j][1], traj[j][0]]
+                                coordinates: [bd_point[0], bd_point[1]]
                             },
                             count: 1,
                             time: time[j] - time_base
